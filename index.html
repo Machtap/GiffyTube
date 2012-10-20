@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" media="screen" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" media="screen" type="text/css" href="css/bootstrap.css" />
+        <link rel="stylesheet" media="screen" type="text/css" href="css/jquery-ui-1.8.23.custom.css" />
+
+        <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+
+        <title>GiffyTube</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="input-holder">
+                <input class="textbox" id="URL" type="text" name="URL" value="http://www.youtube.com/watch?feature=&v=9bZkp7q19f0"/>
+                <button name="go" id="go" class="buttontext btn btn-primary">Go!</button>
+            </div>
+            <div>
+                <div class="controlpanel ">
+                    <div id="slider"></div>
+                    <div class="innercontainer">
+                        <div class="start">
+                            <div class="labelholder"><a class="label" id="lbl">START</a></div>
+                            <input name="StartTime" id="StartTime" class="startbox box" type="time"/>
+                        </div>
+                        <div class="video-holder">
+                            <div class="video" id="video"></div>
+                        </div>
+                        <div class="end">
+                            <div class="labelholder"><a id="lbl2" class="label endlabel">END</a></div>
+                            <input name="Duration" id="Duration" class="endbox box" type="time"/>
+                        </div>
+                    </div>
+                    <div class="clear-fix" />
+                    <div class="generate-holder">
+                        <button id="generate" class="generate btn btn-success" name="generate">Generate!</button>
+                        <div class="progress prog-bar display-none progress-striped active progress-success">
+                            <div class="bar" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    
+                    <a id="output"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="left">
+                <!-- About -->
+                <!-- Contact -->
+            </div>
+            <div class="right">
+                <!-- shares -->
+            </div>
+        </div>
+    </body>
+</html>
