@@ -8,20 +8,13 @@ $T = time();
 
 function getYoutubeId($youtube) {
     $url = parse_url($youtube);
-    if(		 
-    	$url['host'] !== 'youtube.com' &&
+    if(    
+      $url['host'] !== 'youtube.com' &&
         $url['host'] !== 'www.youtube.com'&&
         $url['host'] !== 'youtu.be'&&
         $url['host'] !== 'www.youtu.be'
-<<<<<<< HEAD
-      )
-        return false;
-    if(
-      $youtube = preg_match('~
-=======
       ){return false;}
     $youtube = preg_replace('~
->>>>>>> bootstrapped, box-shadowed and cleaned up various messes
         # Match non-linked youtube URL in the wild. (Rev:20111012)
         https?://         # Required scheme. Either http or https.
         (?:[0-9A-Z-]+\.)? # Optional subdomain.
@@ -41,25 +34,17 @@ function getYoutubeId($youtube) {
           )               # End recognized pre-linked alts.
         )                 # End negative lookahead assertion.
         [?=&+%\w]*        # Consume any URL (query) remainder.
-<<<<<<< HEAD
-        ~ix',
-        $youtube))  {
-          return $youtube;
-          }
-      else { return "Error!";}
-=======
         ~ix', 
         '$1',
         $youtube);
     $youtube = substr($youtube, 0, 11);
     return $youtube;
->>>>>>> bootstrapped, box-shadowed and cleaned up various messes
 }
 
 function getStartTime($Start) {
 
   $pattern = "/^([0-5]?[0-9]):([0-5]?[0-9])$/";
-	if (preg_match($pattern, $Start)) {
+  if (preg_match($pattern, $Start)) {
     return $Start;
   }
   else {
@@ -78,20 +63,6 @@ function getDuration($dur) {
   }
 }
 
-<<<<<<< HEAD
-//$firstString = "ffmpeg -i " . $UID . ".mp4 -r 10 " . $G . "%03d.png -ss 00:" . $S . " -t " . $D;
-
-//"ffmpeg -i 9bZkp7q19f1.mp4 -r 20 output/output%03d.png -ss " . $S . " -t " . $D
-
-
-$secondString = "mplayer ". $UID .".mp4 -nosound -vo gif89a:fps=10:output=". $G .".gif -vf scale='550:309' -ss ". $S ." -endpos ". $D;
-//$thirdString = "convert " . $G . "*.png -colors 64 " . $G . ".gif ";
-//$thirdString = "ffmpeg -qscale 1 -r 9 -i " . $G . "*.png " . $G . ".gif";
-//exec($firstString);
-exec($secondString);
-
-//exec($thirdString);
-=======
 $G = $UID . $T;
 
 $firstString = "ffmpeg -i " . $UID . ".mp4 -r 13 " . $G . "%03d.gif -ss 00:" . $S . " -t " . $D;
@@ -101,7 +72,6 @@ $thirdString = "gifsicle --delay=8 --loop " . $G . "*.gif > output/" . $G . ".gi
 exec($firstString);
 //exec($secondString);
 exec($thirdString);
->>>>>>> bootstrapped, box-shadowed and cleaned up various messes
 
 echo $G . ".gif";
 
