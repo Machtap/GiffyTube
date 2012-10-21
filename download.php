@@ -1,12 +1,6 @@
 <?php 
 session_start();
 
-<<<<<<< HEAD
-// $clearcache = "rm /var/www/Giftest/*.flv";
-// exec($clearcache);
-
-=======
->>>>>>> bootstrapped, box-shadowed and cleaned up various messes
 $UID = getYoutubeId($_POST['UID']);
 
 function getYoutubeId($youtube) {

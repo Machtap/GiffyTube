@@ -40,6 +40,10 @@ $(function createVideo(){
 $(function fireGenerate() {
 
     $("#generate").click(function () {
+        $(".prog-bar").addClass("display-all");
+        $(".prog-bar").removeClass("display-none");
+        $("#generate").addClass("display-none");
+
         var URL = $("#URL").val();
         var StartTime = $("#StartTime").val();
         var EndTime = $("#Duration").val();
@@ -55,18 +59,13 @@ $(function fireGenerate() {
             D: D,
             UID: URL
         }, function (data) {
-<<<<<<< HEAD
-            var G = (data)
-            window.location = G;
-=======
             var G = (data);
-            window.location = "output/" + G;
->>>>>>> bootstrapped, box-shadowed and cleaned up various messes
-        });
 
-        $(".prog-bar").addClass("display-all");
-        $(".prog-bar").removeClass("display-none");
-        $("#generate").addClass("display-none");
+            $(".hook").after("<img class=\"gif-output\" src=\"output/" + G + "\" alt=\"gif output\" />");
+            $(".controlpanel").addClass("display-none");
+            $(".output").removeClass("display-none");
+            //window.location = "output/" + G;
+        });
     });   
 });
 function makeSomeTime(seconds) {
@@ -99,7 +98,7 @@ function onYouTubePlayerReady(playerId) {
                 $('#slider').bind('slide', function(event, ui) {
                     var a = $(".startbox").val();
                     var b = $(".endbox").val();
-                    var c = a+30
+                    var c = a+30;
                 });
             }
         });

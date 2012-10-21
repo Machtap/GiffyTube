@@ -15,27 +15,49 @@
         <script type="text/javascript" src="js/main.js"></script>
 
         <title>GiffyTube</title>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-35662271-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
     </head>
 
     <body>
         <div class="container">
             <div class="input-holder">
-                <input class="textbox" id="URL" type="text" name="URL" value="http://www.youtube.com/watch?feature=&v=9bZkp7q19f0"/>
+                <input class="textbox" id="URL" type="text" name="URL" onfocus="if(this.value == 'Paste a Youtube video link here...') { this.value = ''; }" value="Paste a Youtube video link here..." />
                 <button name="go" id="go" class="buttontext btn btn-primary">Go!</button>
             </div>
             <div>
-                <div class="controlpanel ">
+                <div class="controlpanel display-none">
+
+                    <div class="alert">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        Move the sliders to select a range for your gif!
+                    </div>
+                    <div class="alert">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        For more precision, select a slider and user the arrow keys!
+                    </div>
                     <div id="slider"></div>
                     <div class="innercontainer">
                         <div class="start">
-                            <div class="labelholder"><a class="label" id="lbl">START</a></div>
+                            <div class="labelholder"><a class="label label-success" id="lbl">START</a></div>
                             <input name="StartTime" id="StartTime" class="startbox box" type="time"/>
                         </div>
                         <div class="video-holder">
                             <div class="video" id="video"></div>
                         </div>
                         <div class="end">
-                            <div class="labelholder"><a id="lbl2" class="label endlabel">END</a></div>
+                            <div class="labelholder"><a id="lbl2" class="label label-important endlabel">END</a></div>
                             <input name="Duration" id="Duration" class="endbox box" type="time"/>
                         </div>
                     </div>
@@ -46,9 +68,13 @@
                             <div class="bar" style="width: 100%;"></div>
                         </div>
                     </div>
-                    
-                    <a id="output"></a>
                 </div>
+            </div>
+            <div class="output display-none">
+                    <div class="hook"></div>
+                    <!-- <img class="gif-output" src="http://lsbehost3.d.umn.edu/Giftest/output/5mfnpirgKNA1350604910.gif" alt="gif output" /> -->
+
+
             </div>
         </div>
         <div class="footer">

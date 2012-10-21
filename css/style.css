@@ -90,7 +90,7 @@ body{
 }
 .controlpanel{
     width:900px;
-    height:400px;
+    height:500px;
     margin:60px auto;
     padding:10px 50px 50px 50px;
     background:white;
@@ -199,3 +199,19 @@ body{
 }
 .display-all{display:block;}
 .display-none{display:none !important;}
+
+.output{
+    width:900px;
+    height:500px;
+    margin:60px auto;
+    padding:10px 50px 50px 50px;
+    background:white;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    box-shadow: 0 0 25px #333;
+}
+
+.gif-output{
+    padding: 32px 20px 20px 130px;
+}
