@@ -1,0 +1,18 @@
+convert gifimages/_iSzgi2VhDw1357591715014.gif
+ -gravity north -annotate 0 'Boner Patrol'
+edited.gif";
+
+convert -pointsize 35 -fill white -stroke black -weight bold -gravity North -draw 'text 0,0 "Boner Patrol" ' G-N1qKHCMdE*************.gif output%05d.gif
+
+"convert -pointsize 26 -fill white -draw 'text 35,400 \"Boner Patrol\" '
+
+GYu0xTlgp7Y
+
+
+5dePOXAYIrE1357697775
+
+
+convert -pointsize 35 -fill white -stroke black -weight bold -gravity South -draw 'text 0,0 " ASDF " ' output/gifimages/5dePOXAYIrE/5dePOXAYIrE1357697775*.gif output/gifimages/5dePOXAYIrE/5dePOXAYIrE.gif
+
+
+convert -pointsize 35 -fill white -stroke black -weight bold -gravity South -draw 'text 0,0 "I riked it!" ' output/gifimages/McHbEPDfpzs/McHbEPDfpzs1357601189*.gif output/gifimages/McHbEPDfpzs/McHbEPDfpzs.gif

@@ -1,8 +1,6 @@
 // /* Document Information
-
 // - Version:  1.0
 // - Andrew Macht
-
 // */
 
 var youTubePlayer;
@@ -10,14 +8,40 @@ var params = { allowScriptAccess: "always" };
 var atts = { id: "myvideo" };
 var UID = "";
 var GifName = "";
-$(function createVideo(){
+var qs = getQueryStrings();
 
+$(document).keypress(function(e){
+    if (e.which == 13){
+        $("#go").click();
+    }
+});
+$(function addText(){
+    $("#addtextbutton").click(function () {
+        var topText = $("#top-text").val();
+        var bottomText = $("#bottom-text").val();
+        var UID = qs["gifurl"];
+
+        alert(topText + " " + bottomText + " " + UID);
+
+        $.post("textadd.php", {
+                TT: topText,
+                BT: bottomText,
+                UID: UID,
+            }, function (data1) {
+                //alert(data1);
+                var G = (data1);
+                var UID = G.substring(0,11);
+                window.location = "/giffytube/output/gifimages/"+ G + "/" + UID +".gif";
+            });
+    });
+});
+$(function createVideo(){
     $("#go").click(function () {
         var U = $("#URL").val();
         $.post("download.php", {
                 UID: U
             }, function (data) {
-
+ 
             });
 
         var video_id = U.split('v=')[1];
@@ -29,10 +53,8 @@ $(function createVideo(){
         if (U == null || U == "") {
             alert("Input a Video ID");
         }
-
         UID = video_id;
         swfobject.embedSWF('http://www.youtube.com/v/' + UID + '?enablejsapi=1&version=3', 'video', 560, 315, "9", null, null, params, atts);
-
         $(".controlpanel").addClass("display-all");
         $(".controlpanel").removeClass("display-none");
     });
@@ -60,11 +82,7 @@ $(function fireGenerate() {
             UID: URL
         }, function (data) {
             var G = (data);
-
-            $(".hook").after("<img class=\"gif-output\" src=\"output/" + G + "\" alt=\"gif output\" />");
-            $(".controlpanel").addClass("display-none");
-            $(".output").removeClass("display-none");
-            //window.location = "output/" + G;
+            window.location = "display.php?gifurl=" + G;
         });
     });   
 });
@@ -77,9 +95,24 @@ function makeSomeTime(seconds) {
     if (seconds < 10) { seconds = "0" + seconds; }
     return min + ":" + seconds;
 }
+function getQueryStrings() { 
+  var assoc  = {};
+  var decode = function (s) { return decodeURIComponent(s.replace(/\+/g, " ")); };
+  var queryString = location.search.substring(1); 
+  var keyValues = queryString.split('&'); 
+
+  for(var i in keyValues) { 
+    var key = keyValues[i].split('=');
+    if (key.length > 1) {
+      assoc[decode(key[0])] = decode(key[1]);
+    }
+  } 
+
+  return assoc; 
+} 
 function onYouTubePlayerReady(playerId) {
     youTubePlayer = $("#myvideo").get(0);
-    $(".startbox").val("0:00");
+    $(".startbox").val("00:00");
     $(".endbox").val(makeSomeTime(30));
     $(function () {
         // Slider

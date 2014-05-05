@@ -20,7 +20,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 input:active {
-    
+
 }
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -50,11 +50,12 @@ table {
 */
 
 body{
-    background-color:#cccccc;
-    background-image:url(images/noise.png);
+    background: url(images/header.gif) left 40px repeat-x white;
+/*    background-color:#cccccc;
+    background-image:url(images/noise.png);*/
 }
 .input-holder {
-    width:700px;
+    width:800px;
     height:50px;
     border-radius:9px;
     z-index:5;
@@ -63,7 +64,7 @@ body{
 }
 .textbox{
     width:600px;
-    height:36px !important;
+    height:46px !important;
     margin:0 auto;
     border-radius: 6px !important;
     border:1px solid;
@@ -72,13 +73,61 @@ body{
     border-right:0px;
     font-size:24px !important;
 }
+.header{
+    height:60px;
+}
 #go{
-    width:80px;
+    width:180px;
     height:44px !important;
 }
 .container {
     width:900px;
-    margin:200px auto 0px auto;
+    margin:150px auto 0px auto;
+}
+.container2 {
+    width:900px;
+    margin:50px auto 0 auto;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    box-shadow: 0 0 25px #333;
+    background-color:#cccccc;
+    background-image:url(images/noise.png);
+}
+.container3 {
+    width:900px;
+    margin:50px auto 100px auto;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    box-shadow: 0 0 25px #333;
+    height:200px;
+    background-color:#cccccc;
+    background-image:url(images/noise.png);
+    padding-top:25px;
+}
+.logo-holder{
+    width:800px;
+    margin:0 auto;
+}
+.logo-spacer{
+    padding-top:15px;
+    float:left;
+    width:200px;
+}
+.logo{
+    font-weight:bold;
+    padding-top:20px;
+    font-size:30px;
+    width:150px;
+    cursor:pointer;
+    text-decoration: none;
+    color:black;
+}
+.logo:hover{
+    color:#F90;
+    cursor:pointer;
+    text-decoration: none;
 }
 .control {
     float:right;
@@ -91,13 +140,15 @@ body{
 .controlpanel{
     width:900px;
     height:500px;
-    margin:60px auto;
+    margin:30px auto;
     padding:10px 50px 50px 50px;
     background:white;
     -webkit-border-radius: 8px;
        -moz-border-radius: 8px;
             border-radius: 8px;
     box-shadow: 0 0 25px #333;
+    background-color:#cccccc;
+    background-image:url(images/noise.png);
 }
 .ui-slider-handle {
     width:9px !important;
@@ -156,11 +207,7 @@ body{
     width:900px;
     height:100px;
 }
-.clear-fix{
-    height:0;
-    width:0;
-    clear:both;
-}
+ 
 #generate {
     width:200px;
     height:45px;
@@ -176,6 +223,7 @@ body{
     height:315px;
     margin:5px;
     float:left;
+    background-color:white;
     border: 2px solid #cccccc;
       -webkit-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
          -moz-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
@@ -213,5 +261,85 @@ body{
 }
 
 .gif-output{
-    padding: 32px 20px 20px 130px;
+    padding: 32px 20px 20px 130px;\
+}
+
+.go {
+    background-color: #F90;
+    border: 1px solid;
+    border-color: #F90 #F90 #C60 #F90;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    color: white;
+    cursor: default;
+    line-height: 40px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 -1px 0 #C60;
+}
+/*#URL {
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 0 0 5px #CCC inset;
+    -moz-box-shadow: 0 0 5px #ccc inset;
+    -webkit-box-shadow: 0 0 5px #CCC inset;
+    height: 40px;
+    overflow: hidden;
+}*/
+.gif-output{
+    margin:0 auto;
+    width:640px;
+    height:360px;
+}
+.social-holder{
+    height:80px;
+    width:250px;
+    margin:0 auto
+}
+.social{
+    float:left;
+    padding-left:20px;
+    padding-right:20px;
+}
+.addthis{
+    padding-top:10px;
+    float:right;
+    width: 250px;
+}
+.buttontext{
+    background-color: #F90;
+    border: 1px solid;
+    border-color: #F90 #F90 #C60 #F90;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    color: white;
+    text-align: center;
+    text-shadow: 0 -1px 0 #C60;
+    width:228px;
+    font-size: 24px;
+}
+.meme-holder{
+    margin:0 225px;
+    height:35px;
+
+}
+.meme-text{
+    float:left;
+    width:300px;
+}
+.labels{
+    float:left;
+    width:100px;
+    padding:4px;
+    margin:0;
+    text-align:center;
+    vertical-align: middle;
+}
+.add-text-button{
+    margin:0 400px;
 }

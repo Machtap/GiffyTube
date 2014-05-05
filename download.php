@@ -5,11 +5,12 @@ $UID = getYoutubeId($_POST['UID']);
 
 function getYoutubeId($youtube) {
     $url = parse_url($youtube);
-    if($url['host'] !== 'youtube.com' &&
-             $url['host'] !== 'www.youtube.com'&&
-             $url['host'] !== 'youtu.be'&&
-             $url['host'] !== 'www.youtu.be')
-        return false;
+    if(
+         $url['host'] !== 'youtube.com' &&
+         $url['host'] !== 'www.youtube.com'&&
+         $url['host'] !== 'youtu.be'&&
+         $url['host'] !== 'www.youtu.be')
+        {return false;}
     $youtube = preg_replace('~
         # Match non-linked youtube URL in the wild. (Rev:20111012)
         https?://         # Required scheme. Either http or https.
@@ -36,11 +37,10 @@ function getYoutubeId($youtube) {
     $youtube = substr($youtube, 0, 11);
     return $youtube;
 }
+//$download = "youtube-dl -f 18 -o \"tmp/\"" . $UID . ".mp4\" " . $UID;
+$download = "youtube-dl -f 18 " . $UID . " -o" . $UID . ".mp4";
 
-$download = "youtube-dl -f 18 " . $UID;
+$download_escaped = escapeshellcmd($download);
 
-exec($download);
-$string = 'rm /var/www/Giftest/*.gif';
-exec($string);
-
+exec($download_escaped);
 ?>

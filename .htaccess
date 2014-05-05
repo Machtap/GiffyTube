@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Folders and files to ignore
+RewriteRule ^css - [L,NC]
+RewriteRule ^img - [L,NC]
+RewriteRule ^js - [L,NC]
+RewriteRule ^download.php - [L,NC]
+RewriteRule ^run.php - [L,NC]
+RewriteRule ^uploads - [L,NC]
+RewriteRule ^output - [L,NC]
+
+# Bulk rewrite rules
+# RewriteRule ^([^/]*)\display/*$ /giffytube/display.php?gifurl=$1 [L]
+# RewriteRule ^([^/]*)\index.html$ /giffytube/index.html [L]
+# RewriteRule ^([^/]*)\.$ /giffytube/display.php?gifurl=$1 [L]
+RewriteRule ^([^/]*)\.html$ /giffytube/display.php?gifurl=$1 [L]
+RewriteRule ^([^/]*)\ /giffytube/index.php [L]

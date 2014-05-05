@@ -9,7 +9,7 @@ $T = time();
 function getYoutubeId($youtube) {
     $url = parse_url($youtube);
     if(    
-      $url['host'] !== 'youtube.com' &&
+        $url['host'] !== 'youtube.com' &&
         $url['host'] !== 'www.youtube.com'&&
         $url['host'] !== 'youtu.be'&&
         $url['host'] !== 'www.youtu.be'
@@ -45,7 +45,14 @@ function getStartTime($Start) {
 
   $pattern = "/^([0-5]?[0-9]):([0-5]?[0-9])$/";
   if (preg_match($pattern, $Start)) {
-    return $Start;
+    $secondpattern = "/^([0-5][0-9]):([0-5]?[0-9])$/";
+    if (preg_match($secondpattern, $Start)) {
+      return $Start;
+    }
+    else {
+      $Start = "0" . $Start;
+      return $Start;
+    }
   }
   else {
     return "error!";
@@ -65,14 +72,16 @@ function getDuration($dur) {
 
 $G = $UID . $T;
 
-$firstString = "ffmpeg -i " . $UID . ".mp4 -r 13 " . $G . "%03d.gif -ss 00:" . $S . " -t " . $D;
-//$secondString = "mplayer ". $UID .".mp4 -nosound -vo gif89a:fps=10:output=". $G .".gif -vf scale='550:309' -ss ". $S ." -endpos ". $D;
-$thirdString = "gifsicle --delay=8 --loop " . $G . "*.gif > output/" . $G . ".gif ";
+$folderString = "mkdir output/gifimages/" . $G ;
+$firstString = "ffmpeg -i " . $UID . ".mp4 -r 13 output/gifimages/". $G . "/" . $G . "%03d.gif -ss 00:" . $S . " -t " . $D;
+$thirdString = "gifsicle --delay=8 --loop output/gifimages/". $G . "/" . $G . "*.gif > output/" . $G . ".gif ";
+$finalstring2 = "rm " . $UID . ".mp4";
+exec($folderString);
 
 exec($firstString);
-//exec($secondString);
+
 exec($thirdString);
 
-echo $G . ".gif";
+exec($finalstring2);
 
 ?>
